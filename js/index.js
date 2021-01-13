@@ -29,3 +29,11 @@ function offset(el) {
 }
 
 window.addEventListener('scroll', animateOnScroll);
+
+const iconMenu=document.querySelector(".navigation__burger");
+const menuBody=document.querySelector(".navigation__list");
+	iconMenu.addEventListener("click", (e) => {
+		iconMenu.classList.toggle("open");
+		menuBody.classList.toggle("open");
+	});
+
