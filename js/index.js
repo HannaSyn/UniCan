@@ -2,6 +2,11 @@ const animItems = document.querySelectorAll('.anim-items');
 const langBtn = document.querySelector('.lang');
 const iconMenu=document.querySelector('.navigation__burger');
 const menuBody=document.querySelector('.navigation__list');
+const fileInput = document.querySelector("#file");
+const fileName = document.querySelector("#file-name");
+const fileEdit = document.querySelector('.contact-form__file-edit');
+const fileRemove = document.querySelector('#file-remove');
+const form = document.getElementById('form');
 
 function animateOnScroll() {
   for( let i = 0; i < animItems.length; i++ ) {
@@ -46,9 +51,81 @@ function openLangList(e) {
   }
 };
 
+fileInput.onchange = function(){
+  if (fileName != ''){
+    fileEdit.classList.add('required');
+  }
+  fileName.textContent = this.files[0].name;
+}
+
+fileRemove.addEventListener('click', function () {
+  fileInput.value = '';
+  fileName.textContent = '';
+  fileEdit.classList.remove('required');
+});
+
+async function formSend(e) {
+  e.preventDefault();
+  let error = formValidate(form);
+  // let formData = new FormData(form)
+  // console.log(error)
+  // if (!error) {
+  //   let response = await fetch('sendmail.php', {
+  //     method: 'POST',
+  //     body: formData
+  //   });
+  //   if(response.ok) {
+  //     let result = await response.json();
+  //     alert(result.message);
+  //     form.reset();
+  //   } else {
+  //     alert("Error")
+  //   }
+  // } else {
+  //   console.log("Fill form")
+  // }
+}
+
+function formValidate(form) {
+  let error = 0;
+  let formReq = document.querySelectorAll(".req");
+
+  for(let i = 0; i < formReq.length; i++) {
+    const input = formReq[i]
+    formRemoveError(input);
+    
+    if (input.classList.contains('email')) {
+      if (emailTest(input)) {
+        formAddError(input);
+        error++;
+      }
+    } else {
+      if (input.value === '') {
+        formAddError(input)
+        error++;
+      }
+    }
+  }
+}
+
+function formAddError(input) {
+  input.previousElementSibling.classList.add('err');
+  input.classList.add('err');
+}
+
+function formRemoveError(input) {
+  input.previousElementSibling.classList.remove('err');
+  input.classList.remove('err');
+}
+
+function emailTest(input) {
+  return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   window.addEventListener('scroll', animateOnScroll);
-
+  form.addEventListener("submit", formSend);
   langBtn.addEventListener('click', openLangList);
   iconMenu.addEventListener('click', openMenu);
+  
 });
