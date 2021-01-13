@@ -871,15 +871,15 @@ h6 {
 }
 
 @media (max-width: 1024px) {
-  .lang:active {
+  .lang.open {
     background-color: #ac8f53;
   }
 
-  .lang:active p {
+  .lang.open p {
     color: #000000;
   }
 
-  .lang:active .lang__list {
+  .lang.open .lang__list {
     opacity: 1;
   }
 }

@@ -37,3 +37,8 @@ const menuBody=document.querySelector(".navigation__list");
 		menuBody.classList.toggle("open");
 	});
 
+const langBtn = document.querySelector('.lang');
+langBtn.addEventListener('click', function() {
+  langBtn.classList.toggle('open');
+})
+
