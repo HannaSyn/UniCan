@@ -1,4 +1,7 @@
 const animItems = document.querySelectorAll('.anim-items');
+const langBtn = document.querySelector('.lang');
+const iconMenu=document.querySelector('.navigation__burger');
+const menuBody=document.querySelector('.navigation__list');
 
 function animateOnScroll() {
   for( let i = 0; i < animItems.length; i++ ) {
@@ -28,17 +31,24 @@ function offset(el) {
     return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
 }
 
-window.addEventListener('scroll', animateOnScroll);
 
-const iconMenu=document.querySelector(".navigation__burger");
-const menuBody=document.querySelector(".navigation__list");
-	iconMenu.addEventListener("click", (e) => {
-		iconMenu.classList.toggle("open");
-		menuBody.classList.toggle("open");
-	});
+function openMenu(e) {
+  iconMenu.classList.toggle('open');
+  menuBody.classList.toggle('open');
+};
 
-const langBtn = document.querySelector('.lang');
-langBtn.addEventListener('click', function() {
-  langBtn.classList.toggle('open');
-})
 
+function openLangList(e) {
+  langBtn.classList.add('open');
+  const target = e.target;
+  if(!target.classList.contains('lang')){
+    langBtn.classList.remove('open');
+  }
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+  window.addEventListener('scroll', animateOnScroll);
+
+  langBtn.addEventListener('click', openLangList);
+  iconMenu.addEventListener('click', openMenu);
+});
