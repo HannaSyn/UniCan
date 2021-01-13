@@ -870,6 +870,20 @@ h6 {
   color: #ffffff;
 }
 
+@media (max-width: 1024px) {
+  .lang:active {
+    background-color: #ac8f53;
+  }
+
+  .lang:active p {
+    color: #000000;
+  }
+
+  .lang:active .lang__list {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 995px) {
   .footer__svg {
     top: -130px;
