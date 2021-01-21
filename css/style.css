@@ -251,7 +251,7 @@ h6 {
 }
 
 .mainscreen {
-  background: url(../assets/BG.jpg) 0 0/cover no-repeat;
+  background: url(../assets/BG.jpg) 50% 50%/cover no-repeat;
   width: 100vw;
   height: 130vh;
   position: relative;
@@ -276,6 +276,8 @@ h6 {
 
 .mainscreen__text {
   font-size: 48px;
+  letter-spacing: 1px;
+  line-height: 58px;
 }
 
 .mainscreen__svg {
@@ -584,8 +586,8 @@ h6 {
 
 .team__column {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 40%;
-          flex: 1 1 40%;
+      -ms-flex: 1 1 30%;
+          flex: 1 1 30%;
   color: #ffffff;
   margin: 0 20px 0;
   -webkit-transition: -webkit-transform 0.8s ease-in-out;
@@ -601,8 +603,8 @@ h6 {
 
 .team__column-small {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
+      -ms-flex: 0 0 60%;
+          flex: 0 0 60%;
   -webkit-transform: translate(120%, 0%);
       -ms-transform: translate(120%, 0%);
           transform: translate(120%, 0%);
@@ -624,13 +626,14 @@ h6 {
 }
 
 .team__photo {
-  height: 600px;
+  height: 400px;
+  width: 400px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 .team__content {
-  margin: 60px 0 0;
+  margin: 60px 0 0 60px;
 }
 
 .team__name {
@@ -710,6 +713,7 @@ h6 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 20px 0;
+  position: relative;
 }
 
 .contact-form__item-wrapper .contact-form__item {
@@ -921,6 +925,11 @@ h6 {
     opacity: 1;
   }
 
+  .mainscreen {
+    background: url(../assets/BG.jpg) 30% 0/cover no-repeat;
+    height: 105vh;
+  }
+
   .products__item.active::before {
     border-top-color: #b9924e;
     border-right-color: #b9924e;
@@ -1099,12 +1108,18 @@ h6 {
     font-size: 22px;
   }
 
+  .mainscreen {
+    height: 101vh;
+  }
+
   .mainscreen__title {
     font-size: 48px;
   }
 
   .mainscreen__text {
     font-size: 32px;
+    letter-spacing: 0.8px;
+    line-height: 48px;
   }
 
   .about__subtitle {
@@ -1225,7 +1240,7 @@ h6 {
 
   .products__column-down {
     position: absolute;
-    top: 480px;
+    top: 420px;
     left: 50%;
     -webkit-transform: translate(-50%, 0);
         -ms-transform: translate(-50%, 0);
@@ -1278,8 +1293,17 @@ h6 {
 }
 
 @media (max-width: 460px) {
+  .contact-form__item-wrapper {
+    margin: 20px 0 120px;
+  }
+
   .contact-form__item-wrapper .g-recaptcha {
-    margin: 0 0 0 -35px;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
   }
 }
 

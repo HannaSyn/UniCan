@@ -7,6 +7,10 @@ const fileName = document.querySelector("#file-name");
 const fileEdit = document.querySelector('.contact-form__file-edit');
 const fileRemove = document.querySelector('#file-remove');
 const form = document.getElementById('form');
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+const message = document.getElementById('message');
+
 
 function animateOnScroll() {
   for( let i = 0; i < animItems.length; i++ ) {
@@ -52,38 +56,52 @@ function openLangList(e) {
 };
 
 fileInput.onchange = function(){
+  uploadFile(this.files[0]);
   if (fileName != ''){
     fileEdit.classList.add('required');
   }
   fileName.textContent = this.files[0].name;
 }
 
-fileRemove.addEventListener('click', function () {
+function uploadFile(file) {
+  if(file.size > 25 * 1024 * 1024) {
+    alert('error size');
+  }
+}
+
+function removeFile() {
   fileInput.value = '';
   fileName.textContent = '';
   fileEdit.classList.remove('required');
-});
+}
 
 async function formSend(e) {
   e.preventDefault();
   let error = formValidate(form);
-  // let formData = new FormData(form)
-  // console.log(error)
-  // if (!error) {
-  //   let response = await fetch('sendmail.php', {
-  //     method: 'POST',
-  //     body: formData
-  //   });
-  //   if(response.ok) {
-  //     let result = await response.json();
-  //     alert(result.message);
-  //     form.reset();
-  //   } else {
-  //     alert("Error")
-  //   }
-  // } else {
-  //   console.log("Fill form")
-  // }
+  let formData = new FormData(form);
+  formData.append('file', fileInput.files[0])
+  if (!error) {
+    let response = await fetch('sendmail.php', {
+      method: 'POST',
+      body: formData
+    });
+    if(response.ok) {
+      let result = await response.json();
+      alert(result.message);
+      reset();
+    } else {
+      alert("Error")
+    }
+  } else {
+    console.log("Fill form")
+  }
+}
+
+function reset() {
+  name.value = '';
+  email.value = '';
+  message.value = '';
+  removeFile();
 }
 
 function formValidate(form) {
@@ -127,5 +145,6 @@ document.addEventListener("DOMContentLoaded", function() {
   form.addEventListener("submit", formSend);
   langBtn.addEventListener('click', openLangList);
   iconMenu.addEventListener('click', openMenu);
-  
+  fileRemove.addEventListener('click', removeFile);
+
 });
