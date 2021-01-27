@@ -10,7 +10,11 @@ const form = document.getElementById('form');
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 const message = document.getElementById('message');
-
+const popupWait = document.querySelector('.contact__popup-wait');
+const popupFill = document.querySelector('.contact__popup-fill');
+const popupSuccess = document.querySelector('.contact__popup-success');
+const popupBig = document.querySelector('.contact__popup-toobig');
+const popupError = document.querySelector('.contact__popup-error');
 
 function animateOnScroll() {
   for( let i = 0; i < animItems.length; i++ ) {
@@ -59,13 +63,13 @@ fileInput.onchange = function(){
   uploadFile(this.files[0]);
   if (fileName != ''){
     fileEdit.classList.add('required');
-  }
+  } 
   fileName.textContent = this.files[0].name;
 }
 
 function uploadFile(file) {
   if(file.size > 25 * 1024 * 1024) {
-    alert('error size');
+    showPopup(popupBig);
   }
 }
 
@@ -77,24 +81,33 @@ function removeFile() {
 
 async function formSend(e) {
   e.preventDefault();
-  let error = formValidate(form);
+  let error = formValidate();
   let formData = new FormData(form);
   formData.append('file', fileInput.files[0])
   if (!error) {
+    showPopup(popupWait);
     let response = await fetch('sendmail.php', {
       method: 'POST',
       body: formData
     });
     if(response.ok) {
       let result = await response.json();
-      alert(result.message);
+      console.log(result.message);
+      showPopup(popupSuccess);
       reset();
     } else {
-      alert("Error")
+      showPopup(popupError);
     }
   } else {
-    console.log("Fill form")
+    showPopup(popupFill);
   }
+}
+
+function showPopup(popup) {
+  popup.classList.add('show');
+  setTimeout (() => {
+    popup.classList.remove('show');
+  }, 2500)
 }
 
 function reset() {
@@ -104,7 +117,7 @@ function reset() {
   removeFile();
 }
 
-function formValidate(form) {
+function formValidate() {
   let error = 0;
   let formReq = document.querySelectorAll(".req");
 
@@ -122,7 +135,13 @@ function formValidate(form) {
         formAddError(input)
         error++;
       }
-    }
+    } 
+  }
+  if (error != 0) {
+    console.log(error)
+    return true;
+  } else {
+    return false
   }
 }
 

@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.min.css">
-  <title>Uni Can Imports</title>
+  <title>UniCan Imports</title>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <header class="header">
     <div class="header__container container">
       <div class="logo-wrapper">
-        <a href="#"><img class="logo" src="assets/logo.jpg" alt="logo"></a>
+        <a href="index.html"><img class="logo" src="assets/logo.jpg" alt="logo"></a>
       </div>
       <nav class="navigation">
         <div class="navigation__burger">
@@ -27,20 +27,20 @@
       <div class="lang">
         <p>EN</p>
         <ul class="lang__list">
-          <li class="lang__item"><a href="#" class="lang__link">RU</a></li>
-          <li class="lang__item"><a href="#" class="lang__link">FR</a></li>
+          <li class="lang__item"><a href="ru/index.html" class="lang__link">RU</a></li>
+          <li class="lang__item"><a href="fr/index.html" class="lang__link">FR</a></li>
         </ul>
       </div>
     </div>
   </header>
   <main>
-    <section class="mainscreen">
+    <article class="mainscreen">
       <div class="mainscreen__container">
         <h1 class="mainscreen__title title">UniCan Imports</h1>
-        <p class="mainscreen__text">Exclusive distributor of Eastern European products to Canada</p>
+        <strong class="mainscreen__text">Exclusive distributor of Eastern European products to Canada</strong>
         <svg class="mainscreen__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250"><path fill="#ffffff" fill-opacity="1" d="M0,32L120,58.7C240,85,480,139,720,144C960,149,1200,107,1320,85.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>
       </div>
-    </section>
+    </article>
     <section id="about" class="about">
       <div class="container">
         <h2 class="about__title title">
@@ -49,7 +49,6 @@
         <div class="about__content">
           <div class="about__content-container anim-items">
             <p class="about__subtitle">OVERVIEW</p>
-            <!-- <p class="about__text-bold">MAKING THE IMPOSSIBLE, POSSIBLE</p> -->
             <p class="about__text">UniCan provides innovative, global supply-chain solutions across  Consumer, Industrial and Retail markets. These solutions include Order Management, Distribution & Fulfillment, Customs Brokerage and Transportation products delivered across Canada.</p>
           </div>
           <div class="about__content-container"></div>
@@ -57,7 +56,6 @@
         <div class="about__content">
           <div class="about__content-container"></div>
           <div class="about__content-container anim-items">
-            <!-- <p class="about__subtitle"></p> -->
             <p class="about__text"> With roots in ocean shipping, our brand was built alongside a culture of deep customer focus and attention.
               One of our advantages is that we find and conclude exclusive contracts for the import of products. Today, the portfolio of the company has an extremely wide assortment - canned food, vegetable oil, frozen bread, cereals, textiles.
             </p>
@@ -160,8 +158,8 @@
           <div class="team__column team__column-small anim-items">
             <div class="team__content">
               <h3 class="team__name">Mariia Litvinenko</h3>
-              <p class="team__subtitle">CEO/Founder of UniCan imports</p>
-              <!-- <p class="team__description">Dab clown loach flathead damselfish, darter sea raven gurnard yellowhead jawfish. Dory Hammerjaw crevice kelpfish, "bluntnose minnow beaked salmon."</p> -->
+              <p class="team__subtitle">CEO</p>
+              <p class="team__description">Founder of UniCan imports</p>
             </div>
           </div>
         </div>
@@ -172,13 +170,12 @@
           <div class="team__column team__column-small team__column-reverse-small anim-items">
             <div class="team__content">
               <h3 class="team__name">Yevheniia Kondes</h3>
-              <p class="team__subtitle">CVO
-                Director of the Ukrainian part</p>
-              <!-- <p class="team__description">Rattail yellowfin grouper turbot; vendace mummichog river loach Black angelfish pilchard. Skipping goby sauger, longnose lancetfish triplefin blenny nase bighead?</p> -->
+              <p class="team__subtitle">CVO</p>
+              <p class="team__description">Director of the Ukrainian part</p>
             </div>
           </div>
         </div>
-        <div class="team__row">
+        <!-- <div class="team__row">
           <div class="team__column anim-items">
             <img class="team__photo" src="assets/cfo.jpg" alt="president">
           </div>
@@ -186,10 +183,9 @@
             <div class="team__content">
               <h3 class="team__name">Olha Kovalenko</h3>
               <p class="team__subtitle">CFO</p>
-              <!-- <p class="team__description">Rattail yellowfin grouper turbot; vendace mummichog river loach Black angelfish pilchard. Skipping goby sauger, longnose lancetfish triplefin blenny nase bighead?</p> -->
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <svg class="team__svg-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200"><path fill="#ffffff" fill-opacity="1" d="M0,32L120,58.7C240,85,480,139,720,144C960,149,1200,107,1320,85.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path></svg>
     </section>
@@ -213,6 +209,7 @@
             <div class="contact-form__item">
               <input type="file" name="file" id="file" class="contact-form__input-file">
               <label class="contact-form__label-file" for="file">Upload Catalog</label>
+              <p class="contact-form__warning-file">*Files larger than 25MB can't be sended</p>
               <div class="contact-form__file-edit">
                 <p class="contact-form__file-name" id="file-name"></p>
                 <span id="file-remove">x</span>
@@ -224,15 +221,43 @@
             <button type="submit" class="contact-form__btn">Send</button>
           </div>
         </form>
+        <div class="contact__popup contact__popup-wait">
+          <div class="contact__popup-container">
+            <p>Please, wait</p>
+          </div>
+        </div>
+        <div class="contact__popup contact__popup-fill">
+          <div class="contact__popup-container">
+            <p>Please, fill form</p>
+          </div>
+        </div>
+        <div class="contact__popup contact__popup-success">
+          <div class="contact__popup-container">
+            <p>Thank you!</p>
+            <p>Email is sended</p>
+          </div>
+        </div>
+        <div class="contact__popup contact__popup-toobig">
+          <div class="contact__popup-container">
+            <p>Sorry!</p>
+            <p>Too big file! Please, check size of attached file</p>
+          </div>
+        </div>
+        <div class="contact__popup contact__popup-error">
+          <div class="contact__popup-container">
+            <p>Error!</p>
+            <p>Please, try later</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
   <footer class="footer">
     <div class="container">
-      <div class="footer__top">
+      <section class="footer__top">
         <div class="footer__column">
           <div class="footer__logo-wrapper">
-            <a href="#"><img class="logo" src="assets/logo.jpg" alt="logo"></a>
+            <a href="index.html"><img class="logo" src="assets/logo.jpg" alt="logo"></a>
           </div>
         </div>
         <div class="footer__column">
@@ -251,7 +276,6 @@
               <li class="social__item"><a href="https://www.facebook.com/UNICANImports" class="social__link"><img src="assets/facebook.svg" alt="facebook"></a></li>
               <li class="social__item"><a href="mailto:importsunican@gmail.com" class="social__link"><img src="assets/gmail.svg" alt="gmail"></a></li>
               <li class="social__item"><a href="tel:+15145194717" class="social__link"><img src="assets/phonecall.svg" alt="phonecall"></a></li>
-
               <!-- <li class="social__item"><a href="#" class="social__link"><img src="assets/instagram.svg" alt="instagram"></a></li>
               <li class="social__item"><a href="#" class="social__link"><img src="assets/whatsapp.svg" alt="whatsapp"></a></li>
               <li class="social__item"><a href="#" class="social__link"><img src="assets/linkedin.svg" alt="linkedin"></a></li>
@@ -259,8 +283,8 @@
             </ul>
           </div>
         </div>
-      </div>
-      <div class="footer__bottom">Copyright © 2021 Uni Can Imports, All Rights Reserved.</div>
+      </section>
+      <section class="footer__bottom">Copyright © 2021 Uni Can Imports, All Rights Reserved.</section>
     </div>
   </footer>
   <script src="js/index.min.js"></script>
